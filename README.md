@@ -2,6 +2,8 @@
 
 A clock that tells the time the way broadcasters say it: "coming up to 10 past 8", "quarter to 4", "12 seconds to 9".
 
+**Use it now: <https://rhulse.github.io/Broadcasters-Clock-v3/>**
+
 Hosts get the hour wrong, or lose the time completely when the studio is busy. This shows the time in words, with a progress bar for the minute and a countdown in the last minute of the hour.
 
 It began as a Delphi app in 2004, built for Geoff Robinson on Radio New Zealand's Morning Report. This is the third version, in plain modern JavaScript with no build step and no dependencies.
