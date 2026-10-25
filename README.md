@@ -19,7 +19,9 @@ The **Classic** setting drops the rounding and the signs, and always shows the c
 
 ## Running it
 
-Open the site, or run it yourself. The modules need a web server, not `file://`:
+**Easiest:** download `clock.html` and open it. It is the whole clock in one file, so it works from a folder, a USB stick or a network share, with no server and no internet.
+
+**From the source:** the modules need a web server, not `file://`:
 
 ```sh
 npm start        # serves http://localhost:8000
@@ -40,12 +42,24 @@ js/core/    what to say, with no DOM and no wording (spokenTime.js is the heart)
 js/i18n/    one file per language, turning that data into words
 js/ui/      timer, settings, and the only code that touches the page
 css/        styles
+scripts/    build.mjs, which makes clock.html
+clock.html  generated single-file version (committed, don't edit)
 test/       node --test
 ```
 
 ## Adding a language
 
 Copy `js/i18n/en.js`, write a `format(t)` that returns `{ sign, text }`, and add it to `js/i18n/index.js`. Each language builds its own phrase, so word order and grammar are up to it. Look at `js/core/spokenTime.js` for the data it receives.
+
+## Building clock.html
+
+`clock.html` is generated from `index.html`, `css/` and `js/` by a small script with no dependencies. After any change, and before committing:
+
+```sh
+npm run build
+```
+
+`npm test` fails if `clock.html` is out of date, so a forgotten build gets caught. The bundler only understands the import and export forms this project uses, and stops with an error if it meets anything else.
 
 ## Tests
 
