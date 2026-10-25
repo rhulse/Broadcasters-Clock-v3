@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Broadcaster's Clock</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/text.css" />
+    <script type="module" src="js/main.js"></script>
+  </head>
+  <body>
+    <main class="page">
+      <section class="clock" data-clock>
+        <div class="spoken">
+          <span class="spoken-sign" data-sign></span>
+          <span class="spoken-phrase" data-phrase></span>
+        </div>
+        <div class="bar" data-bar></div>
+        <div class="digital" data-digital></div>
+      </section>
+    </main>
+
+    <button class="settings-button" type="button" data-open-settings aria-label="Settings">⚙</button>
+
+    <dialog class="settings" data-settings>
+      <form method="dialog">
+        <h2>Settings</h2>
+
+        <fieldset>
+          <legend>Rounding</legend>
+          <label><input type="radio" name="rounding" value="broadcast" /> Broadcast (rounds up after 30 seconds, with + and −)</label>
+          <label><input type="radio" name="rounding" value="classic" /> Classic (always the current minute)</label>
+        </fieldset>
+
+        <label class="field">Language <select name="lang"></select></label>
+        <label class="field"><input type="checkbox" name="hour12" /> 12-hour digital clock</label>
+
+        <button>Close</button>
+      </form>
+    </dialog>
+
+    <noscript>This clock needs JavaScript to run.</noscript>
+  </body>
+</html>

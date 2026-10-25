@@ -1,0 +1,44 @@
+.page {
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
+  padding: 20px;
+}
+
+.settings-button {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-size: 1.5rem;
+  opacity: 0.3;
+  cursor: pointer;
+}
+
+.settings-button:hover,
+.settings-button:focus-visible {
+  opacity: 1;
+}
+
+.settings {
+  max-width: 28rem;
+  border: 1px solid var(--muted);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--fg);
+
+  fieldset {
+    margin: 0 0 1rem;
+  }
+
+  label {
+    display: block;
+    margin: 0.25rem 0;
+  }
+
+  .field {
+    margin-bottom: 1rem;
+  }
+}

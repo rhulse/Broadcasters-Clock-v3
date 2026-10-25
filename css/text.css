@@ -1,0 +1,35 @@
+.clock {
+  width: 100%;
+
+  .spoken {
+    display: flex;
+    gap: 0.4em;
+    font-size: 10vw;
+    line-height: 1.1;
+  }
+
+  /* Fixed width so the phrase doesn't shift when + changes to − */
+  .spoken-sign {
+    flex: none;
+    width: 0.6em;
+    text-align: center;
+  }
+
+  .bar {
+    --progress: 0%;
+    height: 0.8vw;
+    min-height: 6px;
+    margin: 2vw 0;
+    background: linear-gradient(to right, var(--bar) var(--progress), var(--track) 0);
+  }
+
+  .digital {
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 7vw;
+  }
+
+  &[data-warning] .bar {
+    background: linear-gradient(to right, var(--warning) var(--progress), var(--track) 0);
+  }
+}
