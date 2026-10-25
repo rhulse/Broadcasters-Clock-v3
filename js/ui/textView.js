@@ -17,7 +17,8 @@ export function createTextView(root) {
       sign.textContent = model.sign;
       showPhrase(phrase, model.text);
       digital.textContent = model.digital;
-      bar.style.setProperty("--progress", `${model.progress}%`);
+      // CSS scales the fill by 0..1
+      bar.style.setProperty("--progress", String(model.progress / 100));
       root.toggleAttribute("data-warning", model.warning);
       root.toggleAttribute("data-countdown", model.countdown);
     },

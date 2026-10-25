@@ -31,12 +31,35 @@
     text-align: right;
   }
 
+  /*
+   * A thin line runs the full width; a much taller block sits centred on it
+   * and grows across as the minute passes.
+   */
   .bar {
-    --progress: 0%;
-    height: 0.8vw;
-    min-height: 6px;
-    margin: 2vw 0;
-    background: linear-gradient(to right, var(--bar) var(--progress), var(--track) 0);
+    --progress: 0;
+    --block-height: max(24px, 8vw);
+    --line-height: max(4px, 1vw);
+    position: relative;
+    height: var(--block-height);
+    margin: 1vw 0;
+  }
+
+  .bar::before {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    top: 50%;
+    height: var(--line-height);
+    transform: translateY(-50%);
+    background: var(--track);
+  }
+
+  .bar-fill {
+    position: relative;
+    height: 100%;
+    background: var(--bar);
+    transform: scaleX(var(--progress));
+    transform-origin: left;
   }
 
   .digital {
@@ -45,7 +68,7 @@
     font-size: 7vw;
   }
 
-  &[data-warning] .bar {
-    background: linear-gradient(to right, var(--warning) var(--progress), var(--track) 0);
+  &[data-warning] .bar-fill {
+    background: var(--warning);
   }
 }
