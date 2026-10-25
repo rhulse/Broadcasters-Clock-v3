@@ -11,6 +11,10 @@
     <script type="module" src="js/main.js"></script>
   </head>
   <body>
+    <div class="test-banner" data-test-banner role="status" hidden>
+      TEST MODE — this is not the real time
+    </div>
+
     <main class="page">
       <section class="clock" data-clock>
         <div class="spoken">
@@ -36,6 +40,19 @@
 
         <label class="field">Language <select name="lang"></select></label>
         <label class="field"><input type="checkbox" name="hour12" /> 12-hour digital clock</label>
+
+        <fieldset data-test-mode>
+          <legend>Testing</legend>
+          <label><input type="checkbox" data-test-toggle /> Test mode</label>
+          <div data-test-controls hidden>
+            <label class="field">
+              Jump the clock to
+              <input type="time" step="1" value="07:58:30" data-test-time />
+            </label>
+            <button type="button" data-test-set>Set clock</button>
+            <button type="button" data-test-reset>Back to real time</button>
+          </div>
+        </fieldset>
 
         <button>Close</button>
       </form>

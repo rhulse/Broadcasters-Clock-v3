@@ -15,6 +15,22 @@
     text-align: center;
   }
 
+  /* Equal-width digits, so a changing number doesn't move the text after it */
+  .spoken-phrase {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /*
+   * In the countdown the seconds change every second, and 9 → 10 changes the
+   * number of digits. Give the number a two-digit slot so the words after it
+   * stay put.
+   */
+  &[data-countdown] .num:first-of-type {
+    display: inline-block;
+    min-width: 2ch;
+    text-align: right;
+  }
+
   .bar {
     --progress: 0%;
     height: 0.8vw;

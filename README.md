@@ -29,6 +29,10 @@ Settings are saved in the browser. A URL can set them too, for bookmarks on a st
 
 `?rounding=classic&lang=en&hour12=0`
 
+## Test mode
+
+In Settings, tick **Test mode**, enter a time (for example `07:58:30`) and press **Set clock**. The clock jumps to that time and carries on from there, so you can watch a countdown to the top of the hour without waiting. A red banner shows while the clock is not real time. The offset is never saved, so reloading the page returns to the real time.
+
 ## Project layout
 
 ```

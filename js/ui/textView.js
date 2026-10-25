@@ -11,14 +11,30 @@ export function createTextView(root) {
   return {
     /**
      * @param {{ sign: string, text: string, progress: number,
-     *           warning: boolean, digital: string }} model
+     *           warning: boolean, countdown: boolean, digital: string }} model
      */
     render(model) {
       sign.textContent = model.sign;
-      phrase.textContent = model.text;
+      showPhrase(phrase, model.text);
       digital.textContent = model.digital;
       bar.style.setProperty("--progress", `${model.progress}%`);
       root.toggleAttribute("data-warning", model.warning);
+      root.toggleAttribute("data-countdown", model.countdown);
     },
   };
+}
+
+/**
+ * Wrap each number in a span so CSS can give it a steady width. The language
+ * modules stay free of layout concerns.
+ */
+function showPhrase(element, text) {
+  const nodes = text.split(/(\p{Nd}+)/u).map((piece, i) => {
+    if (i % 2 === 0) return document.createTextNode(piece);
+    const span = document.createElement("span");
+    span.className = "num";
+    span.textContent = piece;
+    return span;
+  });
+  element.replaceChildren(...nodes);
 }
